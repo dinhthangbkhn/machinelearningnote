@@ -30,6 +30,7 @@ def experiment():
     print('optimal j:', optimal_j)
 
     for i in range(NUM_TRIAL):
+        # randomly select exploration or exploit based on EPS 
         if np.random.random() < EPS:
             num_times_explored += 1
             j = np.random.randint(len(bandits))
