@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<SL Engine="1200">
+    <E K="GCurveB" V=""/>
+    <E K="Name" V="RAColor - BW 08"/>
+    <E K="BwYellow" V="29"/>
+    <E K="UUID" V="1A82DC6C-1B97-49D9-820C-4A7A07850408"/>
+    <E K="BwRed" V="-15"/>
+    <E K="BwGreen" V="-6"/>
+    <E K="GCurve" V="0.088,0.049;0.462,0.541;0.863,0.944"/>
+    <E K="BwBlue" V="-29"/>
+    <E K="BwCyan" V="15"/>
+    <E K="BwMagenta" V="6"/>
+    <E K="BwEnabled" V="1"/>
+    <E K="GCurveR" V=""/>
+    <E K="GCurveG" V=""/>
+</SL>
+
