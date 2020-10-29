@@ -37,9 +37,9 @@ test_dataset = test_dataset.map(_normalize_img)
 class MyModel(tf.keras.models.Model):
     def __init__(self) -> None:
         super(MyModel, self).__init__()
-        self.conv1 = Conv2D(32, 3, activation="relu")
+        self.conv1 = Conv2D(32, 3, activation=tf.nn.leaky_relu)
         self.flatten = Flatten()
-        self.d1 = Dense(128, activation='relu')
+        self.d1 = Dense(128, activation=tf.nn.leaky_relu)
         self.d2 = Dense(64, activation=None)
     
     def call(self, x):
@@ -71,7 +71,7 @@ def test_step(images, labels):
     t_loss = loss_object(labels, predictions)
     return t_loss.numpy()
 
-EPOCHS = 5
+EPOCHS = 50
 model = MyModel()
 for epoch in range(EPOCHS):
     # Reset the metrics at the start of the next epoch
@@ -92,7 +92,9 @@ for epoch in range(EPOCHS):
     print(
         f'Epoch {epoch + 1}, '
         f'Loss: {np.array(train_loss_arr).mean()}, '
-        #f'Accuracy: {train_accuracy.result() * 100}, '
         f'Test Loss: {np.array(test_loss_arr).mean()}, '
-        #f'Test Accuracy: {test_accuracy.result() * 100}'
     )
+    if (epoch+1) % 5 == 0:
+        print(f'Saving model in {epoch+1}')
+        model.save('saved_model/entire_model')
+
